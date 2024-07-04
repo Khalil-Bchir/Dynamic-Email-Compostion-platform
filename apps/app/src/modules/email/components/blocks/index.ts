@@ -1,0 +1,6 @@
+export { default as TextBlock } from './text-block.vue'
+export { default as ButtonBlock } from './button-block.vue'
+export { default as ColumnBlock } from './column-block.vue'
+export { default as TwoColumnsBlock } from './twoColumns-block.vue'
+export { default as ImageBlock } from './image-block.vue'
+export { default as Modal } from './modal-block.vue'

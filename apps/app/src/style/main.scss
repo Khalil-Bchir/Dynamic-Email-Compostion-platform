@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background:#ffffff;
+    --foreground: #0c0a09;
+
+    --card: #ffffff;
+    --card-foreground: #0c0a09;
+
+    --popover: #ffffff;
+    --popover-foreground: #0c0a09;
+
+    --primary: #3AC99E;
+    --primary-foreground: #fafafa;
+
+    --secondary: #fafafa;
+    --secondary-foreground: #1c1917;
+
+    --muted: #868686;
+    --muted-foreground: #78716c;
+
+    --accent: #FBFBFB;
+    --accent-foreground: #1c1917;
+
+    --destructive: #d44040;
+    --destructive-foreground: #fafafa;
+
+    --success: #6ad2a7;
+    --success-foreground: #1c1917;
+
+    --warning: #ffb700;
+    --warning-foreground: #e6a400;
+
+    --info: #249ef5;
+    --info-foreground: #0066ff;
+
+    --editor: #F9F9F9;
+    --editor-foreground: #1c1917;
+
+    --border: #e7e5e4;
+    --input: #e7e5e4;
+    --ring: #0c0a09;
+    --radius: 0.5rem;
+    --overlay: #FFF500;
+
+    --vis-tooltip-background-color: none !important;
+    --vis-tooltip-border-color: none !important;
+    --vis-tooltip-text-color: none !important;
+    --vis-tooltip-shadow-color: none !important;
+    --vis-tooltip-backdrop-filter: none !important;
+    --vis-tooltip-padding: none !important;
+
+    --vis-primary-color: var(--primary);
+    /* change to any hsl value you want */
+    --vis-secondary-color: 160 81% 40%;
+    --vis-text-color: var(--muted-foreground);
+  }
+
+  .dark {
+    --background: #0c0a09;
+    --foreground: #fafaf9;
+
+    --card: #0c0a09;
+    --card-foreground: #fafaf9;
+
+    --popover: #0c0a09;
+    --popover-foreground: #fafaf9;
+
+    --primary: #f19b0b;
+    --primary-foreground: #fafafa;
+
+    --secondary: #292524;
+    --secondary-foreground: #fafaf9;
+
+    --muted: #292524;
+    --muted-foreground: #a8a29e;
+
+    --accent: #f8fafc;
+    --accent-foreground: #fafaf9;
+
+    --destructive: #7f1d1d;
+    --destructive-foreground: #fafaf9;
+
+    --overlay: #FFF500;
+    --overlay-foreground: #fafaf9;
+
+    --border: #292524;
+    --input: #292524;
+    --ring: #a16207;
+
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

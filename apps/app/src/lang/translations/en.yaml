@@ -1,0 +1,60 @@
+english: English
+forgot_password: Forgot password
+did_you_forget_password: Forgot password?
+already_have_account: Already have an account?
+login_different_account: Login with a different account
+enter_your_email_to_reset: Enter your email to reset your password
+remember_me: Remember me
+login: Login
+sign_in: Sign in
+sign_up: Sign up
+login_text: Access your account for personalized insights and updates
+sign_up_text: Create an account to access personalized insights and updates
+email: E-mail
+password: Password
+confirm_password: Confirm password
+submit: Submit
+save: Save
+invalid_token: Invalid token
+error: Error
+success: Success
+create_campaign: New Campaign
+campaigns: Campaigns
+audience: Audience
+name_campaign_text: Enter the name of your campaign
+sender_text: Enter details concerning sender’s profile
+subsribed_text: Fill up your subscribed audience and targets
+subject_text: Enter the subject of your e-mail
+schedual_text: Set up the send time of your e_mail
+content_text: Design and customize your e-mail
+campaign_name: Campaign name
+sender: Sender
+subject: Subject
+forward_programming: Forward programming
+content: E-mail content
+recipient: Recipient
+edit: Edit
+mention: Mention
+program: Program
+design: Design
+fill_up: Fill up
+back: Back
+create_new: Create new
+campaign: Campaign
+save_and_publish: Save and publish
+name: Name
+start_design_journey: Start Your Design Journey
+start_design_journey_text: Choose the option that fits your specific design expectations and start filling it up.
+empty_email: Empty E-mail
+empty_email_text: Start customizing your E-mail from scratch.
+ready_template: Ready template
+ready_template_text: Pick up a design fitting the E-mail content
+saved_template: Saved template
+saved_template_text: Use templates you designed and saved for later.
+try_on: Try on
+confirm: Confirm
+cancel: Cancel
+save_and_exit: Save and exit
+create: Create
+create_new_contact: Create new Contact
+add_audience: Add Audience

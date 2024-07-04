@@ -1,0 +1,131 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String             @id @default(cuid())
+  email         String             @unique
+  password      String             @db.Text()
+  created_at    DateTime           @default(now())
+  updated_at    DateTime           @default(now()) @updatedAt
+  organizations UserOrganization[]
+}
+
+model Organization {
+  id        String             @id @default(cuid())
+  name      String             @unique
+  users     UserOrganization[]
+  templates EmailTemplate[]
+  campaigns Campaign[]
+  contacts  Contact[]
+  media     Media[]
+}
+
+model UserOrganization {
+  id               String            @id @default(cuid())
+  user             User              @relation(fields: [userId], references: [id])
+  userId           String
+  organization     Organization      @relation(fields: [organizationId], references: [id])
+  organizationId   String
+  role             Role
+  invitationStatus InvitationStatus?
+  invitationToken  String?           @unique
+
+  @@unique([userId, organizationId])
+}
+
+enum InvitationStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  INACTIVE
+}
+
+enum Role {
+  Admin
+  Member
+}
+
+
+model Contact {
+  id              String           @id @default(cuid())
+  firstName       String
+  lastName        String
+  email           String           @unique
+  phone           String?
+  createdBy       Organization     @relation(fields: [createdById], references: [id])
+  createdById     String
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime?        @default(now()) @updatedAt
+  emailRecipients EmailRecipient[]
+}
+
+model EmailRecipient {
+  id         String   @id @default(cuid())
+  campaign   Campaign @relation(fields: [campaignId], references: [id])
+  campaignId String
+  contact    Contact  @relation(fields: [contactId], references: [id])
+  contactId  String
+}
+
+model EmailTemplate {
+  id          String       @id @default(cuid())
+  content     Json
+  createdBy   Organization @relation(fields: [createdById], references: [id])
+  createdById String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime?    @default(now()) @updatedAt
+  campaigns   Campaign[]
+}
+
+model Media {
+  id          String       @id @default(cuid())
+  filename    String       @unique
+  mimetype    String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @default(now()) @updatedAt
+  createdBy   Organization @relation(fields: [createdById], references: [id])
+  createdById String
+}
+
+model Campaign {
+  id              String           @id @default(cuid())
+  name            String
+  sender          String
+  subject         String
+  sendAt          DateTime?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime?        @default(now()) @updatedAt
+  emailTemplate   EmailTemplate?   @relation(fields: [emailTemplateId], references: [id])
+  emailTemplateId String?
+  messageId       String           @unique
+  createdBy       Organization     @relation(fields: [createdById], references: [id])
+  createdById     String
+  emailRecipients EmailRecipient[]
+  events          Event[]
+}
+
+model Event {
+  event_id     String   @id @default(cuid())
+  id           Int
+  event        String
+  email        String
+  messageId    String
+  date         DateTime
+  ts           Int
+  ts_event     Int
+  subject      String
+  custom       String?
+  sending_ip   String
+  ts_epoch     BigInt
+  template_id  String?
+  tags         String[]
+  link         String?
+  sender_email String
+  campaign     Campaign @relation(fields: [messageId], references: [messageId])
+}
