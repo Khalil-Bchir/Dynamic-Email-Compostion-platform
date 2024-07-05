@@ -1,4 +1,5 @@
 FROM node:18-alpine AS base
+ARG DATABASE_URL
 
 FROM base AS builder
 
@@ -71,4 +72,7 @@ COPY --from=installer /server .
 
 EXPOSE 8000
 
-CMD node apps/api/dist/index.js
+CMD npx prisma migrate deploy --schema=packages/database/prisma/schema.prisma && node apps/api/dist/index.js
+
+# Optionally, set an environment variable for the database URL
+ENV DATABASE_URL=$DATABASE_URL

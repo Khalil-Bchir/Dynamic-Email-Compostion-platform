@@ -19,5 +19,5 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/email-marketing-tool:api -f apps/api/Dockerfile .
+          docker build --build-arg DATABASE_URL="${{ secrets.DATABASE_URL }}" -t ${{ secrets.DOCKER_USERNAME }}/email-marketing-tool:api -f apps/api/Dockerfile .
           docker push ${{ secrets.DOCKER_USERNAME }}/email-marketing-tool:api
