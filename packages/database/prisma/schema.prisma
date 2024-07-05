@@ -51,7 +51,6 @@ enum Role {
   Member
 }
 
-
 model Contact {
   id              String           @id @default(cuid())
   firstName       String
