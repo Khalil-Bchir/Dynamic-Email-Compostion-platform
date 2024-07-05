@@ -54,6 +54,11 @@ RUN pnpm install
 RUN turbo build --filter=@saas-monorepo/database
 RUN turbo build --filter=api
 
+# Add the migration command here
+# This will run the migration during the build process
+ARG DATABASE_URL
+RUN cd packages/database && npx prisma migrate deploy
+
 FROM base AS runner
 
 WORKDIR /server
@@ -71,4 +76,4 @@ COPY --from=installer /server .
 
 EXPOSE 8000
 
-CMD node apps/api/dist/index.js
+CMD ["sh", "-c", "npx prisma migrate deploy && node apps/api/dist/index.js"]
