@@ -78,7 +78,7 @@ app.addHook('onClose', async () => {
 
 //server listen
 const port = process.env['SERVER_PORT'] || 8000;
-const host = process.env['SERVER_HOST'] || 'localhost';
+const host = process.env['SERVER_HOST'] || '0.0.0.0';
 app.listen({ host: host, port: parseInt(port as string) }, (err: any) => {
   if (err) {
     app.log.error(err);
