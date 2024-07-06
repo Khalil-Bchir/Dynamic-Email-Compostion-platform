@@ -1,6 +1,3 @@
-Certainly! Here's a complete README file for your Dynamic Email Composition Platform:
-
-```markdown
 # Dynamic Email Composition Platform
 
 ## Overview
