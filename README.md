@@ -1,3 +1,6 @@
+Certainly! Here's a complete README file for your Dynamic Email Composition Platform:
+
+```markdown
 # Dynamic Email Composition Platform
 
 ## Overview
@@ -77,6 +80,14 @@ pnpm turbo dev
 3. **Track campaign events:**
 
    Monitor the campaign's performance by tracking opens, clicks, deliveries, and other relevant events.
+
+## Deployment
+
+The Dynamic Email Composition Platform is deployed with the frontend on [Vercel](https://dynamic-email-compostion-platform-app.vercel.app) and the backend on [Render](https://render.com).
+
+## Email Sending and Tracking
+
+Previously, this platform used Brevo and its transactional webhooks for tracking and email sending. In the current demo version, the tracking feature is not available. Email sending functionality is operational using SendGrid. For full tracking capabilities, please configure your SendGrid account accordingly.
 
 ## Contributing
 
